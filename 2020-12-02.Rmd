@@ -1,0 +1,48 @@
+
+### 2.1
+
+Regarding DPP(民進黨), construct an object called best_performance_dpp to record the party’s best performance among all New Taipei city counties. The selection criterion is the highest supporting rate (最高得票率). The object has the following structure:
+```{r ans21}
+# best_performance_dpp
+highest_rate <- max(election2020[[4]])
+
+best_county<-election2020$`鄉(鎮、市、區)別`[election2020$`(3)
+ 蔡英文
+ 賴清德`==highest_rate]
+
+best_county_votes<-election2020$有效票數[election2020$`(3)
+ 蔡英文
+ 賴清德`==highest_rate]
+                                     
+                                    
+
+best_ddp_votes=best_county_votes*highest_rate
+
+best_performance_dpp<-list(
+  county=best_county,
+  votes=as.integer(round(best_ddp_votes)),
+  supporting_rate=0.6697
+  )
+
+best_performance_dpp
+str(best_performance_dpp)
+```
+
+ election2020$`鄉(鎮、市、區)別`=="貢寮區"]
+### 2.2 
+
+```{r ans22}
+# levelSequence
+dppSupportRate<-factor(election2020$有效票數*election2020$`(3)
+ 蔡英文
+ 賴清德`)
+as.numeric(dppSupportRate)
+levels(dppSupportRate)<-election2020$`鄉(鎮、市、區)別`
+dppSupportRate_sorted<-sort(dppSupportRate)
+dppSupportRate_sorted
+names(dppSupportRate_sorted)<-c(election2020$`鄉(鎮、市、區)別`)
+levelSequence<-order(names(dppSupportRate_sorted),decreasing=T)
+
+```
+
+
