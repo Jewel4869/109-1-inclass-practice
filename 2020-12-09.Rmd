@@ -1,0 +1,61 @@
+---
+title: '2020-12-09'
+author: '20201002'
+date: "2020/12/9"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+library(lubridate)
+jsonlite::fromJSON(
+"https://www.dropbox.com/s/qmgurf88a2qdvzl/horoscopes.json?dl=1") -> horoscopes
+birthday_list <-
+  list(
+    date=sample(
+        seq(ymd_hm("2010-01-02 00:00"),
+            ymd_hm("2016-01-01 00:00"), by="hour"),
+        10000
+      )
+  )
+
+```
+
+```{r}
+originX <- 0:10
+originX
+
+# 將0-10切兩份
+cutX_evenly <- cut(originX, breaks=2)
+cutX_evenly
+```
+
+
+```{r}
+# 由breaks將0（含）到10間（含）分成3份
+cutX_error <- cut(originX, breaks=c(0,3,7,10))
+cutX_error
+```
+
